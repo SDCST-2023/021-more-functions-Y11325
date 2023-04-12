@@ -17,12 +17,15 @@ import math
 
 def hypotenuse(n1,n2):
     try:
-        if n1 or n2 < 0:
+        if n1 < 0:
             c = None
-        float(n1)
-        float(n2)
-        c = round(math.sqrt(math.pow(n1,2) + math.pow(n2,2)), 2)
-        print(c)
+        elif n2 < 0:
+            c = None
+        else:
+            float(n1)
+            float(n2)
+            c = round(math.sqrt(math.pow(n1,2) + math.pow(n2,2)), 2)
+            print(c)
     except:
         c = print("Something's wrong\n")
     return c
