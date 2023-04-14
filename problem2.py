@@ -21,52 +21,34 @@ assert triangle(1,1,4) == 0
 (2 points)
 """
 import math
+
 def triangle(n1, n2, n3):
     a1 = math.pow(n1,2)
     a2 = math.pow(n2,2)
     a3 = math.pow(n3,2)
+
     area = [a1,a2,a3]
     total = sum(area)
-    print(f"sum = {total}")
-    L = max(a1,a2,a3)
-    S = min(a1,a2,a3)
-    M = total - L - S
-    print(L,S,M)
-    return
+    Lar = max(a1,a2,a3)
+    Sma = min(a1,a2,a3)
+    Med = total - Lar - Sma
 
-assert triangle(12,5,13) == 2
-'''
-a = round(float(input("Enter one side: ")))
-b = round(float(input("Enter a second side: ")))
-c = round(float(input("Enter third side: ")))
-apow = math.pow(a,2)
-bpow = math.pow(b,2)
-cpow = math.pow(c,2)
-if a < b and b < c:
-    sum = apow + bpow
-    if sum > cpow:
-        print("that is an acute triangle!\n")
-    elif sum == cpow:
-        print("that is a right triangle!\n")
-    elif sum < cpow:
-        print("that is an obtuse triangle!\n")
-elif b < a and c < a:
-    sum = bpow + cpow
-    if sum > apow:
-        print("that is an acute triangle!\n")
-    elif sum == apow:
-        print("that is a right triangle!\n")
-    elif sum < apow:
-        print("that is an obtuse triangle!\n")
-elif a < b and c < b:
-    sum = apow + cpow
-    if sum > bpow:
-        print("that is an acute triangle!\n")
-    elif sum == bpow:
-        print("that is a right triangle!\n")
-    elif sum < bpow:
-        print("that is an obtuse triangle!\n")
-'''
+    perimeter = [n1,n2,n3]
+    P = sum(perimeter)
+    l = max(n1,n2,n3)
+    s = min(n1,n2,n3)
+    m = P - l - s
+
+    if s + m <= l:
+        val = 0
+    elif Sma + Med > Lar:
+        val = 1
+    elif Sma + Med == Lar:
+        val = 2
+    elif Sma + Med < Lar:
+        val = 3
+
+    return val
 
 
 def tests():
@@ -75,6 +57,5 @@ def tests():
     assert triangle(5,15,12) == 3  
     assert triangle(1,1,4) == 0  
 
-
-#if __name__== "__main__":
-    #tests()
+if __name__== "__main__":
+    tests()
